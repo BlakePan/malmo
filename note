@@ -1,0 +1,1 @@
+docker run -it -p 5901:5901 -p 6901:6901 -p8888:8888 -v $PWD:/workspace -w /workspace -e VNC_PW=vncpassword blakepan26/malmo

@@ -21,7 +21,10 @@ from __future__ import print_function
 # Tutorial sample #2: Run simple mission using raw XML
 
 from builtins import range
-import MalmoPython
+try:
+    import MalmoPython
+except ImportError:
+    import malmo.MalmoPython as MalmoPython
 import os
 import sys
 import time

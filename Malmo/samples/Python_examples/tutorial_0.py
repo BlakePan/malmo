@@ -49,6 +49,8 @@ if agent_host.receivedArgument("help"):
     exit(0)
 
 my_mission = MalmoPython.MissionSpec()
+my_mission.timeLimitInSeconds(500000)
+print(my_mission)
 my_mission_record = MalmoPython.MissionRecordSpec()
 
 # Attempt to start a mission:
@@ -77,13 +79,30 @@ while not world_state.has_mission_begun:
 print()
 print("Mission running ", end=' ')
 
-# Loop until mission ends:
+# # Loop until mission ends:
+# while world_state.is_mission_running:
+#     print(".", end="")
+#     time.sleep(0.1)
+#     world_state = agent_host.getWorldState()
+#     for error in world_state.errors:
+#         print("Error:",error.text)
+
 while world_state.is_mission_running:
     print(".", end="")
     time.sleep(0.1)
     world_state = agent_host.getWorldState()
     for error in world_state.errors:
         print("Error:",error.text)
+
+    command = input("command: ")
+
+    if command == 'exit':
+        break
+
+    try:
+        agent_host.sendCommand(command)
+    except Exception as e:
+        print(str(e))
 
 print()
 print("Mission ended")

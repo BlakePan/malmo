@@ -23,7 +23,10 @@ from __future__ import division
 
 from builtins import range
 from past.utils import old_div
-import MalmoPython
+try:
+    import MalmoPython
+except ImportError:
+    import malmo.MalmoPython as MalmoPython
 import os
 import sys
 import time

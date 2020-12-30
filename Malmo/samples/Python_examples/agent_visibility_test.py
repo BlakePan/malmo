@@ -31,7 +31,10 @@ from past.utils import old_div
 WIDTH=860
 HEIGHT=480
 
-import MalmoPython
+try:
+    import MalmoPython
+except ImportError:
+    import malmo.MalmoPython as MalmoPython
 import logging
 import math
 import os

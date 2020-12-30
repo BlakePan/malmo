@@ -18,7 +18,10 @@
 # ------------------------------------------------------------------------------------------------
 
 from __future__ import print_function
-import MalmoPython
+try:
+    import MalmoPython
+except ImportError:
+    import malmo.MalmoPython as MalmoPython
 import os
 import sys
 import time

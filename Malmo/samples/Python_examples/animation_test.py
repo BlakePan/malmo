@@ -19,7 +19,10 @@ from __future__ import print_function
 # ------------------------------------------------------------------------------------------------
 
 from builtins import range
-import MalmoPython
+try:
+    import MalmoPython
+except ImportError:
+    import malmo.MalmoPython as MalmoPython
 import os
 import random
 import sys

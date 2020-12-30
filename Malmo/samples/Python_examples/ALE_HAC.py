@@ -22,7 +22,10 @@ from __future__ import division
 from future import standard_library
 standard_library.install_aliases()
 from past.utils import old_div
-import MalmoPython
+try:
+    import MalmoPython
+except ImportError:
+    import malmo.MalmoPython as MalmoPython
 import os
 import random
 import sys

@@ -26,7 +26,10 @@ standard_library.install_aliases()
 from builtins import range
 from builtins import object
 from past.utils import old_div
-import MalmoPython
+try:
+    import MalmoPython
+except ImportError:
+    import malmo.MalmoPython as MalmoPython
 import os
 import sys
 import time
